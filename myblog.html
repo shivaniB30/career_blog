@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivani Biradar | CS & Cloud</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top navigation + hero -->
+  <header class="site-header">
+    <div class="nav-bar">
+      <div class="logo">SB</div>
+      <header class="header">
+
+    <!-- Profile image -->
+    <img 
+        src="C:\Users\hp\Downloads\WhatsApp Image 2025-12-10 at 18.12.49_06f729ed.jpg" 
+        alt="Shivani Biradar" 
+        class="profile-img"
+    />
+
+      <nav class="nav-links">
+        <button data-target="hero">Home</button>
+        <button data-target="resume">Resume</button>
+        <button data-target="blog">Blog</button>
+        <button data-target="contact">Contact</button>
+      </nav>
+    </div>
+
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <p class="hero-tag">Computer Science & Engineering Student</p>
+        <h1>Hi, I’m Shivani Biradar 👋</h1>
+        <p class="hero-subtitle">
+          Pre-final year CSE student interested in
+          <strong>Cloud Computing</strong>, <strong>AI/ML</strong>,
+          and <strong>software development</strong>. I love learning,
+          building projects, and sharing my journey.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary" data-target="resume">View Resume</button>
+          <button class="secondary" data-target="blog">Read My Blog</button>
+        </div>
+
+        <div class="hero-chips">
+          <span>Python</span>
+          <span>Cloud Computing</span>
+          <span>React</span>
+          <span>AI/ML</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-layout">
+
+    <!-- ===== Resume column ===== -->
+    <section id="resume" class="section">
+      <h2 class="section-title">Resume Snapshot</h2>
+
+      <div class="grid-2">
+        <!-- About card -->
+        <article class="card">
+          <h3>About Me</h3>
+          <p>
+            Motivated pre-final year Computer Science and Engineering student
+            with strong interest in Cloud Computing, AI/ML, and software
+            development. Proficient in Python, C, DBMS, front-end tech, and
+            cloud platforms. Eager to apply my skills through internships and
+            real-world projects.
+          </p>
+        </article>
+
+        <!-- Education card -->
+        <article class="card">
+          <h3>Education</h3>
+          <ul class="list">
+            <li>
+              <strong>BE – Computer Science & Engineering</strong><br />
+              BLDEA’s V P Dr PG Halakatti College of Engineering & Technology,
+              Vijayapur<br />
+              <span class="meta">2023–2027 · CGPA: 7.55</span>
+            </li>
+            <li>
+              <strong>PUC (PCMB)</strong><br />
+              Shantiniketan Science & Commerce PU College, Vijayapur<br />
+              <span class="meta">2023 · 88.83%</span>
+            </li>
+            <li>
+              <strong>CBSE – 10th</strong><br />
+              Sri B M Patil Public School, Vijayapur<br />
+              <span class="meta">2021 · 73%</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Skills card -->
+        <article class="card">
+          <h3>Technical Skills</h3>
+          <div class="tags">
+            <span>Python</span>
+            <span>DBMS</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>React JS</span>
+            <span>Cloud Computing</span>
+          </div>
+
+          <h4>Professional Skills</h4>
+          <ul class="list">
+            <li>Communication</li>
+            <li>Time management</li>
+            <li>Leadership</li>
+            <li>Collaboration & presentation</li>
+            <li>Critical & analytical thinking</li>
+          </ul>
+        </article>
+
+        <!-- Certifications & project card -->
+        <article class="card">
+          <h3>Certifications</h3>
+          <ul class="list">
+            <li>Cloud Computing Internship – Placematra</li>
+            <li>Python using AI for Techies</li>
+            <li>Oracle OCI 2025 – Generative AI Professional</li>
+            <li>English for IT – Cisco Networking Academy</li>
+            <li>NPTEL online certification on Artificial Intelligence:Concepts and Techniques</li>
+          </ul>
+
+          <h4>Project</h4>
+          <ul class="list">
+            <li>
+              Attendance Management System using AWS Cloud.</li>
+             <li> Student & faculty attendance portal system for college.
+            </li>
+          </ul>
+
+          <h4>Ongoing Course</h4>
+          <p class="meta">
+            Credit-Linked Program in AI & ML – Daksh Gurukul IITG × Masai
+          </p>
+        </article>
+
+        <!-- Extra card -->
+        <article class="card">
+          <h3>Languages & Interests</h3>
+          <p><strong>Languages:</strong> English, Hindi, Kannada</p>
+          <p>
+            <strong>Hobbies:</strong> Arts & crafts, painting, travelling,
+            gardening, photography
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Blog column ===== -->
+    <section id="blog" class="section">
+      <h2 class="section-title">Career Blog</h2>
+
+      <!-- new post form -->
+      <article class="card">
+        <h3>Write a New Post</h3>
+        <div class="form-group">
+          <label for="postTitle">Title</label>
+          <input id="postTitle" type="text" placeholder="e.g. My first cloud project" />
+        </div>
+        <div class="form-group">
+          <label for="postContent">Content</label>
+          <textarea id="postContent" rows="4"
+            placeholder="Write your thoughts, learnings, or experiences here..."></textarea>
+        </div>
+        <button id="addPostBtn" class="primary small">Publish</button>
+        <p class="hint">Note: Posts are temporary and reset when you refresh.</p>
+      </article>
+
+      <!-- default post -->
+      <article class="card post-list" id="postList">
+        <article class="post">
+          <h3>My Journey into Computer Science</h3>
+          <p class="meta">December 2025</p>
+          <p>
+            I chose Computer Science because I enjoy solving problems and
+            building useful things. Exploring cloud computing and AI/ML has
+            made me even more excited about this field.
+          </p>
+        </article>
+      </article>
+    </section>
+
+    <!-- ===== Contact / footer card ===== -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <article class="card">
+        <p>
+          I’m open to internships, projects, and collaborations in
+          cloud computing, AI/ML, and web development.
+        </p>
+        <p class="contact-lines">
+          📧 <a href="mailto:biradarshivani2005@gmail.com">
+            biradarshivani2005@gmail.com
+          </a><br />
+          🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">
+            linkedin.com/in/shivanisbiradar
+          </a><br />
+          📍 Vijayapur, Karnataka
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2025 Shivani Biradar · career blog
+  </footer>
+
+  <!-- External JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script src="scripty.js"></script>
+</body>
+</html>
