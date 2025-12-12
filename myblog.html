@@ -24,7 +24,7 @@
 
     /* ---------- Reset & Base ---------- */
     * { box-sizing: border-box; }
-    html,body { height:100%; }
+    html,body { height: auto; }
     body{
       margin:0;
       background:
@@ -35,9 +35,9 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       font-size:15px;
-      padding:32px;
-      display:flex;
-      justify-content:center;
+      padding:32px 20px;
+      /* removed display:flex to allow normal scrolling */
+      min-height:100vh;
     }
 
     /* Decorative blurred shapes */
@@ -48,10 +48,12 @@
       filter: blur(26px) saturate(120%);
     }
 
-    /* Container */
+    /* Container centered via margin so page can grow and scroll */
     .wrap {
       position:relative; z-index:2;
-      width:100%; max-width:980px;
+      width:100%;
+      max-width:980px;
+      margin:0 auto 64px; /* center and allow vertical scrolling */
       border-radius:20px;
       padding:26px;
       background: linear-gradient(180deg, var(--glass), var(--glass-2));
@@ -59,10 +61,10 @@
       border: 1px solid rgba(255,255,255,0.6);
       backdrop-filter: blur(10px) saturate(120%);
       -webkit-backdrop-filter: blur(10px) saturate(120%);
-      overflow:hidden;
+      overflow:visible;
     }
 
-    /* safe gradient outline (compatible) */
+    /* safe gradient outline (fallback-friendly) */
     .wrap-outline {
       position:absolute; inset:0; pointer-events:none; border-radius:20px;
       padding:2px; background: transparent;
@@ -120,7 +122,7 @@
     }
 
     /* LAYOUT */
-    .content{ margin-top:20px; display:grid; grid-template-columns:1fr 320px; gap:20px; }
+    .content{ margin-top:20px; display:grid; grid-template-columns:1fr 320px; gap:20px; align-items:start; }
 
     /* CARDS */
     .card{
@@ -221,9 +223,14 @@
     <!-- HEADER -->
     <header>
       <div class="avatar" aria-hidden="false">
-        <!-- Put your image path in the src below (or leave blank to show initials) -->
-        <img id="profilePhoto" src="" alt="Profile photo">
-        <div class="initials" id="initials">SB</div>
+        <!-- ====== Replace this src with your image file or URL ======
+             Examples:
+             - Local: src="images/me.jpg"
+             - Absolute: src="https://example.com/me.jpg"
+             If you leave src empty, initials 'SB' will show.
+        -->
+        <img id="profilePhoto" src="myprofilepic.jpg" alt="Profile photo">
+        <div class="initials" id="initials" aria-hidden="false">SB</div>
       </div>
 
       <div class="head">
@@ -383,48 +390,42 @@
   </main>
 
   <script>
-    // Robust avatar fallback logic — no console errors if image missing.
+    // Robust avatar fallback: show image if valid; otherwise show initials.
     (function () {
       const img = document.getElementById('profilePhoto');
       const initials = document.getElementById('initials');
 
-      // ensure initials visible by default
-      if (initials) {
-        initials.style.display = 'flex';
-      }
+      // Ensure initials visible by default
+      if (initials) initials.style.display = 'flex';
 
-      if (!img) {
-        // no image element present; nothing to do
-        return;
-      }
+      if (!img) return;
 
-      // if src is empty or not set, keep initials
+      // If no src or empty, keep initials visible
       const src = (img.getAttribute('src') || '').trim();
       if (!src) {
         img.style.display = 'none';
         return;
       }
 
-      // try to load the provided src
-      img.addEventListener('load', function () {
-        if (img.naturalWidth && img.naturalWidth > 0) {
+      // Preload image to detect validity without blocking UI
+      const tester = new Image();
+      tester.onload = function () {
+        if (tester.naturalWidth > 0) {
+          // valid image — show it
+          img.src = src; // set src if not already set
           img.style.display = 'block';
           if (initials) initials.style.display = 'none';
         } else {
           img.style.display = 'none';
           if (initials) initials.style.display = 'flex';
         }
-      });
-
-      img.addEventListener('error', function () {
+      };
+      tester.onerror = function () {
         img.style.display = 'none';
         if (initials) initials.style.display = 'flex';
-      });
-
-      // assign src (re-assigning to itself triggers load in some browsers)
-      img.src ="myprofilepic.jpg"
+      };
+      tester.src = src;
     })();
   </script>
 </body>
 </html>
-
