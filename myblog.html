@@ -3,90 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shivani Biradar — Home</title>
-  <meta name="description" content="Home & blog — Shivani Biradar. Pastel pink glassmorphism."/>
+  <title>Shivani Biradar — Portfolio (Single Page)</title>
+  <meta name="description" content="Single-page portfolio: Home • About • Projects • Skills • Blog • Contact" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg-pink-1:#fff0f6; --bg-pink-2:#ffe6ef;
-      --glass: rgba(255,255,255,0.72); --muted:#6b7280; --text:#0b1220;
+      --glass: rgba(255,255,255,0.72);
+      --glass-2: rgba(255,255,255,0.62);
       --accent-a:#ff95c5; --accent-b:#ffd6e9;
-      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      --muted:#6b7280; --text:#0b1220;
+      --card-shadow: 0 12px 36px rgba(11,18,32,0.06);
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      scroll-behavior:smooth;
     }
-    *{box-sizing:border-box}
-    html,body{height:auto;margin:0;padding:0;background:linear-gradient(180deg,var(--bg-pink-1),var(--bg-pink-2));-webkit-font-smoothing:antialiased}
-    a { color:inherit; text-decoration:none; }
 
-    /* container */
-    .page { max-width:1100px; margin:36px auto; padding:20px; position:relative; }
+    *{box-sizing:border-box}
+    html,body{height:auto;margin:0;padding:0;background:linear-gradient(180deg,var(--bg-pink-1),var(--bg-pink-2));-webkit-font-smoothing:antialiased;color:var(--text)}
+    a{color:inherit;text-decoration:none}
+
+    /* Page container */
+    .page { max-width:980px; margin:28px auto; padding:18px; position:relative; }
 
     /* decorative blurred shapes */
-    .bg-shapes { position:fixed; inset:0; z-index:0; pointer-events:none;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%23ffb2d6" offset="0"/><stop stop-color="%23ffd6e9" offset="0.6"/></linearGradient></defs><g opacity="0.06"><circle cx="200" cy="120" r="220" fill="url(%23g)"/><rect x="760" y="40" rx="36" ry="36" width="420" height="220" fill="%23e9f7f4"/><circle cx="1200" cy="500" r="260" fill="%23ffe6ef"/></g></svg>'); filter: blur(30px) saturate(120%); }
+    .bg-shapes {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%23ffb2d6" offset="0"/><stop stop-color="%23ffd6e9" offset="0.6"/></linearGradient></defs><g opacity="0.06"><circle cx="200" cy="120" r="220" fill="url(%23g)"/><rect x="760" y="40" rx="36" ry="36" width="420" height="220" fill="%23e9f7f4"/><circle cx="1200" cy="500" r="260" fill="%23ffe6ef"/></g></svg>');
+      filter: blur(30px) saturate(120%);
+    }
 
-    /* hero */
-    .hero {
-      display:grid; grid-template-columns: 1fr 420px; gap:24px; align-items:center;
+    /* header / nav */
+    header.site-header {
+      position:sticky; top:14px; z-index:50;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.88));
+      border-radius:14px; padding:12px 16px; margin-bottom:18px;
+      box-shadow:var(--card-shadow); display:flex; gap:12px; align-items:center; justify-content:space-between; border:1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(6px);
+    }
+    .brand { display:flex; gap:12px; align-items:center; min-width:0; }
+    .avatar { width:64px; height:64px; border-radius:12px; overflow:hidden; background:linear-gradient(135deg,#fff0f6,#fff7fb); border:1px solid rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:none; }
+    .initials{ font-weight:800; color:#5b2b3a; font-size:20px }
+    .brand .title { margin:0; font-weight:800; letter-spacing:-0.2px }
+    nav.site-nav { display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+    nav.site-nav a { padding:8px 10px; border-radius:10px; color:var(--muted); font-weight:700 }
+    nav.site-nav a:hover { background:rgba(0,0,0,0.04); color:var(--text) }
+
+    /* shared section card */
+    .section {
+      margin:20px 0;
+      background: linear-gradient(180deg,var(--glass),var(--glass-2));
+      border-radius:16px; padding:20px; border:1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 10px 30px rgba(11,18,32,0.04);
       position:relative; z-index:2;
     }
-    .hero-card {
-      background: linear-gradient(180deg,var(--glass), rgba(255,255,255,0.62));
-      padding:36px; border-radius:18px; border:1px solid rgba(255,255,255,0.6);
-      box-shadow:0 18px 40px rgba(11,18,32,0.06);
-      backdrop-filter: blur(8px);
-    }
-    .intro h1 { margin:0; font-size:36px; letter-spacing:-0.6px; }
-    .intro p { color:var(--muted); margin-top:12px; font-size:16px; line-height:1.5; }
+    .section-title { display:inline-block; padding:8px 12px; border-radius:999px; font-weight:800; background:rgba(255,255,255,0.86) }
 
-    .cta-row { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn {
-      padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer;
-      background:linear-gradient(90deg,var(--accent-a),var(--accent-b)); color:white; border:0;
-      box-shadow:0 8px 28px rgba(255,149,197,0.12);
-    }
-    .btn.ghost { background:transparent; border:1px solid rgba(11,18,32,0.06); color:var(--text) }
+    /* HERO */
+    .hero { display:flex; gap:18px; align-items:center; flex-direction:column; text-align:center }
+    .hero h1 { margin:0; font-size:34px }
+    .hero p { color:var(--muted); margin-top:10px; max-width:760px; line-height:1.5 }
+    .cta { margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center }
+    .btn { padding:10px 14px; border-radius:12px; font-weight:800; color:white; background:linear-gradient(90deg,var(--accent-a),var(--accent-b)); border:0 }
+    .btn.ghost { background:transparent; border:1px solid rgba(0,0,0,0.06); color:var(--text) }
 
-    /* hero right: profile card */
-    .profile-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
-      padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 10px 30px rgba(11,18,32,0.04);
-    }
-    .avatar { width:120px; height:120px; border-radius:18px; overflow:hidden; margin-bottom:10px; background:linear-gradient(135deg,#fff0f6,#fff7fb); border:1px solid rgba(255,255,255,0.6); }
-    .avatar img { width:100%; height:100%; object-fit:cover; display:none; }
-    .initials { font-weight:800; font-size:36px; color:#5b2b3a; display:flex; align-items:center; justify-content:center; height:100%; }
+    /* content single-column stacked */
+    .stack { display:block; }
 
-    .meta { font-size:14px; color:var(--muted); margin-top:6px; }
+    /* text */
+    .muted { color:var(--muted) }
 
-    /* section area (full content) */
-    .full { margin-top:28px; display:block; }
+    /* projects grid (stacked, but cards inside grid) */
+    .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:14px; margin-top:12px }
+    .project-card { background:rgba(255,255,255,0.9); padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,0.04); }
+    .project-card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; display:block }
 
-    .content-grid { display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+    /* skills: icon pills */
+    .skills { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
+    .skill { display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,0.92); border:1px solid rgba(255,149,197,0.08); min-width:120px }
+    .icon-wrap { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(255,149,197,0.08), rgba(185,230,225,0.03)); overflow:hidden }
+    .icon-wrap img{ width:20px; height:20px; object-fit:contain }
 
-    .card { background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.62)); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.6); box-shadow:0 8px 28px rgba(0,0,0,0.04); }
+    /* blog form + posts */
+    .blog-form label{ display:block; margin-top:10px; color:var(--muted); font-weight:700 }
+    .blog-form input, .blog-form textarea { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(11,18,32,0.06); margin-top:6px; }
+    .posts { margin-top:12px; display:flex; flex-direction:column; gap:10px }
 
-    .section-title { font-weight:800; display:inline-block; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.9); }
-    .muted { color:var(--muted); }
-
-    /* skills with icons */
-    .skills { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-    .skill { display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:10px; background:rgba(255,255,255,0.9); border:1px solid rgba(255,149,197,0.08); min-width:120px; }
-    .icon-wrap { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(255,149,197,0.08), rgba(185,230,225,0.03)); overflow:hidden; }
-    .icon-wrap img { width:20px; height:20px; display:block; object-fit:contain; }
-
-    /* blog form */
-    .blog-form label { display:block; margin-top:8px; color:var(--muted); font-weight:700; font-size:13px; }
-    .blog-form input, .blog-form textarea { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(11,18,32,0.06); margin-top:6px; font-size:14px; background:white; }
-    .posts { margin-top:12px; display:flex; flex-direction:column; gap:10px; }
+    /* contact form */
+    .contact-grid { display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px }
+    input[type="text"], input[type="email"], textarea { padding:10px; border-radius:8px; border:1px solid rgba(11,18,32,0.06); width:100%; font-size:14px }
+    textarea{ min-height:120px; resize:vertical }
 
     /* footer */
-    footer { margin-top:30px; text-align:center; color:var(--muted); font-size:13px; }
+    footer { margin-top:24px; text-align:center; color:var(--muted); font-size:13px }
 
-    /* responsive tweaks */
-    @media (max-width:1000px) {
-      .hero { grid-template-columns:1fr; }
-      .content-grid { grid-template-columns:1fr; }
-      .profile-card { order: -1; margin-bottom:12px; }
+    /* responsive */
+    @media (min-width:900px){
+      .hero { flex-direction:row; text-align:left; align-items:center; justify-content:space-between }
+      .hero .left { max-width:58% }
+      .hero .right { max-width:36%; display:flex; justify-content:center }
+      .avatar.large { width:160px; height:160px; border-radius:18px }
+    }
+
+    @media (max-width:700px){
+      header.site-header { flex-direction:column; align-items:flex-start; gap:10px }
     }
   </style>
 </head>
@@ -94,202 +114,186 @@
   <div class="bg-shapes" aria-hidden="true"></div>
 
   <div class="page">
-    <!-- HERO / HOME -->
-    <section class="hero">
-      <div class="hero-card intro">
-        <h1>Hello — I’m <strong>Shivani Biradar</strong></h1>
-        <p>I build web projects, explore cloud & AI/ML, and write quick career notes. Pre-final year Computer Science student — looking for internships & collaborative projects.</p>
-
-        <div class="cta-row">
-          <button class="btn" id="viewFullBtn">View Blog</button>
-          <a class="btn ghost" href="#contact">Contact</a>
-          <a class="btn ghost" id="downloadPDF" href="#" onclick="window.print();return false">Print / Save PDF</a>
+    <!-- HEADER -->
+    <header class="site-header" role="banner" aria-label="Site header">
+      <div class="brand">
+        <div class="avatar" aria-hidden="false">
+          <img id="profileSmall" src="images/profile.jpg" alt="Profile photo">
+          <div class="initials" id="initialsSmall">SB</div>
         </div>
-
-        <div style="margin-top:18px; color:var(--muted); font-size:14px">
-          Quick links:
-          <span style="font-weight:800; margin-left:8px">@shivanibiradar</span>
+        <div>
+          <div class="title">SHIVANI BIRADAR</div>
+          <div class="muted" style="font-size:13px">BE • Computer Science • Cloud & AI</div>
         </div>
       </div>
 
-      <aside class="profile-card">
-        <div class="avatar" id="heroAvatar">
-          <img id="profilePhotoHero" src="myprofilepic.jpg" alt="profile photo">
+      <nav class="site-nav" role="navigation" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="section hero" role="region" aria-labelledby="home-heading">
+      <div class="left">
+        <h1 id="home-heading">Hi — I’m <strong>Shivani</strong>. I build web & cloud projects.</h1>
+        <p>Pre-final year Computer Science student. I explore cloud infrastructure, practical AI/ML and build web applications. Scroll down to read my resume, see projects, skills and quick career notes.</p>
+
+        <div class="cta">
+          <button class="btn" id="viewBlogBtn">View Blog</button>
+          <a class="btn ghost" href="#projects">Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="right" style="margin-top:18px">
+        <div class="avatar large" aria-hidden="false" id="heroAvatar">
+          <img id="profileHero" src="images/profile.jpg" alt="profile photo">
           <div class="initials" id="initialsHero">SB</div>
         </div>
-
-        <div style="font-weight:800; font-size:18px">Shivani Biradar</div>
-        <div class="meta">BE — Computer Science & Engineering (2023–27)</div>
-
-        <div style="margin-top:12px">
-          <div class="meta"><strong>Location:</strong> Vijayapur, Karnataka</div>
-          <div class="meta" style="margin-top:6px"><strong>Email:</strong> biradarshivani2005@gmail.com</div>
-        </div>
-
-        <div style="margin-top:12px">
-          <a class="btn" href="#contact" style="display:inline-block">Get in touch</a>
-        </div>
-
-      </aside>
-    </section>
-
-    <!-- FULL PROFILE + BLOG (target of View Blog) -->
-    <section class="full" id="fullProfile" tabindex="-1">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px">
-        <div>
-          <span class="section-title">Full Profile</span>
-          <div class="muted" style="margin-top:8px">All resume details, skills, projects & blog notes</div>
-        </div>
-        <div>
-          <a class="btn" href="#blogSection" style="margin-right:8px">Jump to Blog</a>
-          <a class="btn ghost" href="#contact">Contact</a>
-        </div>
-      </div>
-
-      <div class="content-grid">
-        <!-- main column -->
-        <main>
-          <section class="card" id="resumeCard">
-            <h3 class="section-title">About</h3>
-            <p class="muted" style="margin-top:10px">
-              Motivated pre-final year Computer Science and Engineering student with a strong interest in cloud computing, AI/ML, and software development. Proficient in Python, C programming, DBMS, front-end technologies, and cloud platforms.
-            </p>
-          </section>
-
-          <section class="card" style="margin-top:14px">
-            <h3 class="section-title">Education</h3>
-            <div style="margin-top:10px">
-              <strong>BLDEA's V P Dr PG Halakatti College of Engg & Tech, Vijayapur</strong>
-              <div class="muted">BE — CSE • CGPA: 7.55 (2023–27)</div>
-
-              <strong style="display:block; margin-top:10px">Shantiniketan Science and Commerce PU College</strong>
-              <div class="muted">PCMB — 88.83% (2023)</div>
-
-              <strong style="display:block; margin-top:10px">Sri B M Patil Public School</strong>
-              <div class="muted">CBSE — 73% (2021)</div>
-            </div>
-          </section>
-
-          <section class="card" style="margin-top:14px">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <h3 class="section-title">Technical Skills</h3>
-              <span class="muted">Tools & Tech</span>
-            </div>
-
-            <div class="skills" id="skillsList">
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python" onerror="this.style.display='none'"></div><span>Python</span></div>
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" alt="React" onerror="this.style.display='none'"></div><span>ReactJS</span></div>
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg" alt="AWS" onerror="this.style.display='none'"></div><span>AWS</span></div>
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" alt="HTML5" onerror="this.style.display='none'"></div><span>HTML5</span></div>
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg" alt="CSS3" onerror="this.style.display='none'"></div><span>CSS3</span></div>
-              <div class="skill"><div class="icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" alt="DBMS" onerror="this.style.display='none'"></div><span>DBMS</span></div>
-            </div>
-          </section>
-
-          <section class="card" style="margin-top:14px">
-            <h3 class="section-title">Certifications & Projects</h3>
-            <ul class="muted" style="margin-top:10px; padding-left:18px">
-              <li>Cloud Computing Internship | Placemantra</li>
-              <li>Python using All AI for Techies</li>
-              <li>Oracle Cloud Infrastructure 2025 — Certified Generative AI Professional</li>
-              <li>English for IT | Cisco Networking Academy</li>
-            </ul>
-
-            <div class="project" style="margin-top:10px">
-              <strong>Attendance Management System (AWS)</strong>
-              <div class="muted" style="margin-top:6px">Student and faculty attendance portal built using AWS services.</div>
-            </div>
-          </section>
-
-          <!-- BLOG area -->
-          <section class="card" id="blogSection" style="margin-top:14px">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <h3 class="section-title">Career Blog</h3>
-              <div class="muted">Quick notes — memory only</div>
-            </div>
-
-            <form id="postForm" class="blog-form" aria-label="Create blog post" style="margin-top:12px">
-              <label for="title">Title</label>
-              <input id="title" name="title" type="text" placeholder="Post title" required>
-
-              <label for="content">Content</label>
-              <textarea id="content" name="content" rows="4" placeholder="Write your post here..." required></textarea>
-
-              <div style="margin-top:10px; display:flex; gap:8px">
-                <button class="btn" type="submit">Publish</button>
-                <button type="button" id="clearBtn" class="btn ghost">Clear</button>
-              </div>
-            </form>
-
-            <div id="posts" class="posts" aria-live="polite" style="margin-top:12px"></div>
-          </section>
-        </main>
-
-        <!-- sidebar -->
-        <aside class="card" id="contact">
-          <h3 class="section-title">Contact</h3>
-
-          <div style="margin-top:12px">
-            <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px">
-              <strong style="min-width:90px">Phone</strong>
-              <div class="muted">+91-9113514751</div>
-            </div>
-
-            <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px">
-              <strong style="min-width:90px">Email</strong>
-              <a href="mailto:biradarshivani2005@gmail.com">biradarshivani2005@gmail.com</a>
-            </div>
-
-            <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px">
-              <strong style="min-width:90px">LinkedIn</strong>
-              <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank" rel="noopener">linkedin.com/in/shivanisbiradar</a>
-            </div>
-
-            <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px">
-              <strong style="min-width:90px">Address</strong>
-              <div class="muted">#100, Adarsh Nagar, Ashram Road, Vijayapur</div>
-            </div>
-          </div>
-
-          <hr style="border:none;border-top:1px solid rgba(0,0,0,0.05); margin:12px 0">
-
-          <div>
-            <strong>Snapshot</strong>
-            <div class="muted" style="margin-top:6px">BE — CSE • CGPA 7.55</div>
-          </div>
-
-          <div style="margin-top:12px; text-align:center">
-            <a class="btn" href="#" onclick="window.print();return false">Print / Save PDF</a>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <footer id="contactFooter">
+    <!-- ABOUT -->
+    <section id="about" class="section" role="region" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title">About</h2>
+      <p class="muted" style="margin-top:12px">Motivated pre-final year Computer Science and Engineering student with strong interest in cloud computing, AI/ML and software development. Proficient in Python, C, DBMS, front-end technologies and AWS.</p>
+
+      <div style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap">
+        <div class="card" style="flex:1; min-width:220px">
+          <h4 style="margin:0 0 6px">Education</h4>
+          <div class="muted">BLDEA's V P Dr PG Halakatti College — BE (CSE), 2023–27 • CGPA: 7.55</div>
+        </div>
+
+        <div class="card" style="flex:1; min-width:220px">
+          <h4 style="margin:0 0 6px">Interests</h4>
+          <div class="muted">Cloud computing, AI/ML, Web dev, UI/UX, Photography</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (stacked below) -->
+    <section id="projects" class="section" role="region" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Projects</h2>
+      <p class="muted" style="margin-top:10px">A selection of projects I’ve built — click to view details.</p>
+
+      <div class="projects-grid" style="margin-top:14px">
+        <article class="project-card" aria-labelledby="p1">
+          <img src="images/project-attendance.jpg" alt="Attendance system image" onerror="this.style.display='none'">
+          <h3 id="p1" style="margin:10px 0 6px">Attendance Management System (AWS)</h3>
+          <p class="muted">A student & faculty attendance portal using AWS services (authentication, storage, serverless functions).</p>
+          <div style="margin-top:8px"><a class="btn" href="#contact">View / Contact</a></div>
+        </article>
+
+        <article class="project-card" aria-labelledby="p2">
+          <img src="images/project-portfolio.jpg" alt="Portfolio image" onerror="this.style.display='none'">
+          <h3 id="p2" style="margin:10px 0 6px">Personal Portfolio Website</h3>
+          <p class="muted">Responsive portfolio built with React and modern CSS; includes projects, blog and contact form.</p>
+          <div style="margin-top:8px"><a class="btn" href="#projects">View details</a></div>
+        </article>
+
+        <!-- add more project-card articles as needed -->
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section" role="region" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-title">Skills</h2>
+      <p class="muted" style="margin-top:10px">Tools and technologies I use regularly.</p>
+
+      <div class="skills" aria-hidden="false">
+        <div class="skill" title="Python"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python icon" onerror="this.style.display='none'"></div><span>Python</span></div>
+        <div class="skill" title="React"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" alt="React icon" onerror="this.style.display='none'"></div><span>ReactJS</span></div>
+        <div class="skill" title="AWS"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg" alt="AWS icon" onerror="this.style.display='none'"></div><span>AWS</span></div>
+        <div class="skill" title="HTML5"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" alt="HTML5" onerror="this.style.display='none'"></div><span>HTML5</span></div>
+        <div class="skill" title="CSS3"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg" alt="CSS3" onerror="this.style.display='none'"></div><span>CSS3</span></div>
+        <div class="skill" title="DBMS"><div class="icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" alt="DBMS" onerror="this.style.display='none'"></div><span>DBMS</span></div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section" role="region" aria-labelledby="blog-heading">
+      <h2 id="blog-heading" class="section-title">Career Blog</h2>
+      <p class="muted" style="margin-top:10px">Quick notes — saved in this session only (local). Use the form to publish posts below.</p>
+
+      <form id="postForm" class="blog-form" aria-label="Create blog post" style="margin-top:12px">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" placeholder="Post title" required>
+
+        <label for="content">Content</label>
+        <textarea id="content" name="content" rows="4" placeholder="Write your post here..." required></textarea>
+
+        <div style="margin-top:10px; display:flex; gap:8px">
+          <button class="btn" type="submit">Publish</button>
+          <button class="btn ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+      </form>
+
+      <div id="posts" class="posts" aria-live="polite" style="margin-top:12px"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" role="region" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-title">Contact</h2>
+      <p class="muted" style="margin-top:10px">Open to internships, projects & collaborations. Use the form or email directly.</p>
+
+      <form id="contactForm" class="contact-grid" style="margin-top:12px" action="mailto:biradarshivani2005@gmail.com" method="post" enctype="text/plain">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+
+        <div style="grid-column:1">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:6px">
+          <button class="btn" type="submit">Send email</button>
+          <a class="btn ghost" href="mailto:biradarshivani2005@gmail.com">Email directly</a>
+        </div>
+      </form>
+
+      <div style="margin-top:14px" class="muted">
+        <div><strong>Email:</strong> biradarshivani2005@gmail.com</div>
+        <div style="margin-top:6px"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank" rel="noopener">linkedin.com/in/shivanisbiradar</a></div>
+        <div style="margin-top:6px"><strong>Phone:</strong> +91-9113514751</div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
       © 2025 Shivani Biradar · <strong>@shivanibiradar</strong> · career blog
     </footer>
   </div>
 
   <script>
-    // Smooth scroll when clicking "View Blog"
-    document.getElementById('viewFullBtn').addEventListener('click', function () {
-      const target = document.getElementById('fullProfile');
+    // Smooth scroll "View Blog" button
+    document.getElementById('viewBlogBtn').addEventListener('click', function () {
+      const target = document.getElementById('blog');
       if (!target) return;
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // put keyboard focus so screen readers jump
       target.focus({ preventScroll: true });
     });
 
-    // Avatar fallback (hero and profile) — set your image src here or leave blank to show initials.
+    // Avatar fallback for small and hero profiles
     (function () {
-      const setAvatar = (imgId, initialsId) => {
+      const showAvatar = (imgId, initialsId) => {
         const img = document.getElementById(imgId);
         const initials = document.getElementById(initialsId);
         if (initials) initials.style.display = 'flex';
         if (!img) return;
         const src = (img.getAttribute('src') || '').trim();
         if (!src) { img.style.display = 'none'; return; }
-        // preload check
         const tester = new Image();
         tester.onload = function () {
           if (tester.naturalWidth > 0) {
@@ -301,15 +305,22 @@
             if (initials) initials.style.display = 'flex';
           }
         };
-        tester.onerror = function () { img.style.display = 'none'; if (initials) initials.style.display = 'flex'; };
+        tester.onerror = function () {
+          img.style.display = 'none';
+          if (initials) initials.style.display = 'flex';
+        };
         tester.src = src;
       };
-
-      setAvatar('profilePhotoHero', 'initialsHero'); // hero small avatar
-      setAvatar('profilePhoto', 'initials'); // full profile avatar (if used)
+      showAvatar('profileSmall','initialsSmall');
+      showAvatar('profileHero','initialsHero'); // hero image id is profileHero
+      showAvatar('profileHero','initialsHero'); // repeated safe call
+      // also show heroAvatar image id fallback
+      showAvatar('profileHero','initialsHero');
+      // Also support hero large image element 'profileHero' and 'profileSmall' present above.
+      // If you use a single image file, ensure it's present at images/profile.jpg
     })();
 
-    // Blog form: publish posts client-side (local)
+    // Blog: client-side posts (local only for this session)
     (function () {
       const form = document.getElementById('postForm');
       const posts = document.getElementById('posts');
@@ -325,25 +336,25 @@
           const title = document.getElementById('title').value.trim();
           const content = document.getElementById('content').value.trim();
           if (!title || !content) return;
-
           const article = document.createElement('article');
-          article.className = 'card';
-          article.style.padding = '12px';
+          article.className = 'section'; // re-uses section look
           article.innerHTML = `
-            <h4 style="margin:0 0 6px">${escapeHtml(title)}</h4>
-            <div style="color:var(--muted); font-size:12px; margin-bottom:8px">${new Date().toLocaleString()}</div>
-            <p style="margin:0; color:#2b3036">${escapeHtml(content)}</p>
+            <h3 style="margin:0 0 6px">${escapeHtml(title)}</h3>
+            <div class="muted" style="font-size:13px;margin-bottom:8px">${new Date().toLocaleString()}</div>
+            <p style="margin:0">${escapeHtml(content)}</p>
           `;
           posts.prepend(article);
           form.reset();
+          // smooth-scroll to the new post (optional)
+          article.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
       if (clearBtn) clearBtn.addEventListener('click', () => form.reset());
     })();
 
-    // Hide skill icon if failed (graceful)
-    document.querySelectorAll('img.skill-icon').forEach(img => {
-      img.addEventListener('error', () => img.style.display = 'none');
+    // hide skill svg icons if they fail to load
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => { img.style.display = 'none'; });
     });
   </script>
 </body>
