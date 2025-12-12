@@ -5,22 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shivani Biradar | CS & Cloud</title>
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- QR Code script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+
 </head>
 <body>
-  <!-- Top navigation + hero -->
-  <header class="site-header">
-    <div class="nav-bar">
-      <div class="logo">SB</div>
-      <header class="header">
 
-    <!-- Profile image -->
-    <img 
-        src="myprofilepic.jpg" 
-        alt="Shivani Biradar" 
-        class="profile-img"
-    />
+  <!-- HEADER / HERO -->
+  <header class="site-header">
+    <div class="logo">SB</div>
+
+    <div class="header-main">
+      <img src="myprofilepic.jpg" alt="Shivani Biradar" class="profile-img" />
+
+      <div class="hero-text">
+        <div class="hero-tag">Computer Science & Engineering Student</div>
+        <h1>Hi, I’m Shivani Biradar 👋</h1>
+        <p class="hero-subtitle">
+          Pre-final year CSE student interested in
+          <strong>Cloud Computing</strong>, <strong>AI/ML</strong>, and
+          <strong>software development</strong>. I love learning, building projects, and sharing my journey.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Cloud</span>
+          <span class="chip">React</span>
+          <span class="chip">AI/ML</span>
+        </div>
+      </div>
 
       <nav class="nav-links">
         <button data-target="hero">Home</button>
@@ -29,200 +48,131 @@
         <button data-target="contact">Contact</button>
       </nav>
     </div>
-
-    <section class="hero" id="hero">
-      <div class="hero-text">
-        <p class="hero-tag">Computer Science & Engineering Student</p>
-        <h1>Hi, I’m Shivani Biradar 👋</h1>
-        <p class="hero-subtitle">
-          Pre-final year CSE student interested in
-          <strong>Cloud Computing</strong>, <strong>AI/ML</strong>,
-          and <strong>software development</strong>. I love learning,
-          building projects, and sharing my journey.
-        </p>
-
-      
-        <div class="hero-chips">
-          <ul>
-          <li>Python</li>
-          <li>Cloud Computing</li>
-          <li>React</li>
-          <li>AI/ML</li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </header>
 
-  <!-- Main content -->
-  <main class="main-layout">
+  <!-- MAIN -->
+  <main>
 
-    <!-- ===== Resume column ===== -->
-    <section id="resume" class="section">
-      <h2 class="section-title">Resume Snapshot</h2>
+    <div class="container">
 
-      <div class="grid-2">
-        <!-- About card -->
-        <article class="card">
-          <h3>About Me</h3>
-          <p>
-            Motivated pre-final year Computer Science and Engineering student
-            with strong interest in Cloud Computing, AI/ML, and software
-            development. Proficient in Python, C, DBMS, front-end tech, and
-            cloud platforms. Eager to apply my skills through internships and
-            real-world projects.
-          </p>
-        </article>
+      <!-- LEFT SIDE -->
+      <div>
+        <!-- Resume Section -->
+        <section id="resume" class="section card">
+          <h2 class="section-title">Resume Snapshot</h2>
 
-        <!-- Education card -->
-        <article class="card">
-          <h3>Education</h3>
-          <ul class="list">
-            <li>
-              <strong>BE – Computer Science & Engineering</strong><br />
-              BLDEA’s V P Dr PG Halakatti College of Engineering & Technology,
-              Vijayapur<br />
-              <span class="meta">2023–2027 · CGPA: 7.55</span>
-            </li>
-            <li>
-              <strong>PUC (PCMB)</strong><br />
-              Shantiniketan Science & Commerce PU College, Vijayapur<br />
-              <span class="meta">2023 · 88.83%</span>
-            </li>
-            <li>
-              <strong>CBSE – 10th</strong><br />
-              Sri B M Patil Public School, Vijayapur<br />
-              <span class="meta">2021 · 73%</span>
-            </li>
-          </ul>
-        </article>
+          <div class="grid-2">
 
-        <!-- Skills card -->
-        <article class="card">
-          <h3>Technical Skills</h3>
-          <div class="tags">
-            <span>Python</span>
-            <span>DBMS</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>React JS</span>
-            <span>Cloud Computing</span>
+            <article>
+              <h3>About Me</h3>
+              <p>
+                Motivated pre-final year CSE student with interest in Cloud Computing, AI/ML, and software development.
+                Skilled in Python, C, DBMS, front-end and cloud platforms.
+              </p>
+            </article>
+
+            <article>
+              <h3>Education</h3>
+              <ul>
+                <li>
+                  <strong>B.E - Computer Science & Engineering</strong><br>
+                  BLDEA’s VP Dr PG Halakatti College, Vijayapur<br>
+                  <span class="meta">2023–2027 · CGPA: 7.55</span>
+                </li>
+                <li>
+                  <strong>PUC (PCMB)</strong><br>
+                  Shantiniketan PU College<br>
+                  <span class="meta">2023 · 88.83%</span>
+                </li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Skills</h3>
+              <div class="tags">
+                <span>Python</span>
+                <span>DBMS</span>
+                <span>React</span>
+                <span>HTML/CSS</span>
+                <span>Cloud</span>
+              </div>
+            </article>
+
+            <article>
+              <h3>Certifications & Projects</h3>
+              <ul>
+                <li>Cloud Computing Internship – Placematra</li>
+                <li>Oracle OCI 2025 – GenAI Professional</li>
+                <li>Attendance Management System – AWS Cloud</li>
+              </ul>
+            </article>
+
           </div>
+        </section>
 
-          <h4>Professional Skills</h4>
-          <ul class="list">
-            <li>Communication</li>
-            <li>Time management</li>
-            <li>Leadership</li>
-            <li>Collaboration & presentation</li>
-            <li>Critical & analytical thinking</li>
-          </ul>
-        </article>
+        <!-- Blog Section -->
+        <section id="blog" class="section card">
+          <h2 class="section-title">Career Blog</h2>
 
-        <!-- Certifications & project card -->
-        <article class="card">
-          <h3>Certifications</h3>
-          <ul class="list">
-            <li>Cloud Computing Internship – Placematra</li>
-            <li>Python using AI for Techies</li>
-            <li>Oracle OCI 2025 – Generative AI Professional</li>
-            <li>English for IT – Cisco Networking Academy</li>
-            <li>NPTEL online certification on Artificial Intelligence:Concepts and Techniques</li>
-          </ul>
+          <article>
+            <h3>Write a New Post</h3>
 
-          <h4>Project</h4>
-          <ul class="list">
-            <li>
-              Attendance Management System using AWS Cloud.</li>
-             <li> Student & faculty attendance portal system for college.
-            </li>
-          </ul>
+            <div class="form-group">
+              <label for="postTitle">Title</label>
+              <input id="postTitle" type="text" placeholder="My first cloud project" />
+            </div>
 
-          <h4>Ongoing Course</h4>
-          <p class="meta">
-            Credit-Linked Program in AI & ML – Daksh Gurukul IITG × Masai
+            <div class="form-group">
+              <label for="postContent">Content</label>
+              <textarea id="postContent" rows="4" placeholder="Write your experience..."></textarea>
+            </div>
+
+            <button id="addPostBtn" class="primary">Publish</button>
+          </article>
+
+          <hr>
+
+          <div id="postList"></div>
+        </section>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <aside>
+
+        <!-- Contact -->
+        <section id="contact" class="section card">
+          <h2 class="section-title">Contact</h2>
+
+          <p>Open to internships, projects, and collaborations.</p>
+
+          <p class="contact-lines">
+            📧 <a href="mailto:biradarshivani2005@gmail.com">biradarshivani2005@gmail.com</a><br>
+            🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">linkedin.com/in/shivanisbiradar</a><br>
+            📍 Vijayapur, Karnataka
           </p>
-        </article>
 
-        <!-- Extra card -->
-        <article class="card">
+          <h3 style="margin-top:15px;">My Blog QR Code</h3>
+          <div id="qrcode"></div>
+        </section>
+
+        <!-- Interests -->
+        <section class="card">
           <h3>Languages & Interests</h3>
           <p><strong>Languages:</strong> English, Hindi, Kannada</p>
-          <p>
-            <strong>Hobbies:</strong> Arts & crafts, painting, travelling,
-            gardening, photography
-          </p>
-        </article>
-      </div>
-    </section>
+          <p><strong>Hobbies:</strong> Arts, Painting, Gardening, Photography</p>
+        </section>
 
-    <!-- ===== Blog column ===== -->
-    <section id="blog" class="section">
-      <h2 class="section-title">Career Blog</h2>
+      </aside>
 
-      <!-- new post form -->
-      <article class="card">
-        <h3>Write a New Post</h3>
-        <div class="form-group">
-          <label for="postTitle">Title</label>
-          <input id="postTitle" type="text" placeholder="e.g. My first cloud project" />
-        </div>
-        <div class="form-group">
-          <label for="postContent">Content</label>
-          <textarea id="postContent" rows="4"
-            placeholder="Write your thoughts, learnings, or experiences here..."></textarea>
-        </div>
-        <button id="addPostBtn" class="primary small">Publish</button>
-        <p class="hint">Note: Posts are temporary and reset when you refresh.</p>
-      </article>
-
-      <!-- default post -->
-      <article class="card post-list" id="postList">
-        <article class="post">
-          <h3>My Journey into Computer Science</h3>
-          <p class="meta">December 2025</p>
-          <p>
-            I chose Computer Science because I enjoy solving problems and
-            building useful things. Exploring cloud computing and AI/ML has
-            made me even more excited about this field.
-          </p>
-        </article>
-      </article>
-    </section>
-
-    <!-- ===== Contact / footer card ===== -->
-    <section id="contact" class="section">
-      <h2 class="section-title">Contact</h2>
-      <article class="card">
-        <p>
-          I’m open to internships, projects, and collaborations in
-          cloud computing, AI/ML, and web development.
-        </p>
-        <p class="contact-lines">
-          📧 <a href="mailto:biradarshivani2005@gmail.com">
-            biradarshivani2005@gmail.com
-          </a><br />
-          🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">
-            linkedin.com/in/shivanisbiradar
-          </a><br />
-          📍 Vijayapur, Karnataka
-        </p>
-      </article>
-    </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     © 2025 Shivani Biradar · career blog
   </footer>
 
-  <!-- External JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 
-  <script src="scripty.js"></script>
 </body>
 </html>
-
-
-
-
-
