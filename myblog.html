@@ -1,92 +1,429 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shivani Biradar | CS & Cloud</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shivani Biradar — Resume (Pastel Pink Glass)</title>
+  <meta name="description" content="Resume — Shivani Biradar. Pastel pink glassmorphism design." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- THEME VARIABLES ---------- */
+    :root{
+      --bg-pink-1: #fff0f6;
+      --bg-pink-2: #ffe6ef;
+      --glass: rgba(255,255,255,0.70);
+      --glass-2: rgba(255,255,255,0.56);
+      --accent-a: #ff95c5;
+      --accent-b: #ffd6e9;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --outline-grad: linear-gradient(135deg, rgba(255,149,197,0.18), rgba(185,230,225,0.12));
+      --card-shadow: 0 10px 40px rgba(11,18,32,0.06);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ---------- Reset & Base ---------- */
+    * { box-sizing: border-box; }
+    html,body { height:100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 400px at 10% 20%, rgba(255,149,197,0.08), transparent 8%),
+        radial-gradient(900px 300px at 90% 80%, rgba(185,230,225,0.05), transparent 8%),
+        linear-gradient(180deg,var(--bg-pink-1),var(--bg-pink-2));
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-size:15px;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+    }
+
+    /* Decorative blurred shapes */
+    .bg-shapes {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%23ffb2d6" offset="0"/><stop stop-color="%23ffd6e9" offset="0.6"/></linearGradient></defs><g opacity="0.06"><circle cx="260" cy="160" r="240" fill="url(%23g)"/><rect x="720" y="60" rx="36" ry="36" width="420" height="220" fill="%23e9f7f4"/><circle cx="1200" cy="500" r="260" fill="%23ffe6ef"/></g></svg>');
+      background-size:cover;
+      filter: blur(26px) saturate(120%);
+    }
+
+    /* Container */
+    .wrap {
+      position:relative; z-index:2;
+      width:100%; max-width:980px;
+      border-radius:20px;
+      padding:26px;
+      background: linear-gradient(180deg, var(--glass), var(--glass-2));
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      overflow:hidden;
+    }
+
+    /* safe gradient outline (compatible) */
+    .wrap-outline {
+      position:absolute; inset:0; pointer-events:none; border-radius:20px;
+      padding:2px; background: transparent;
+    }
+    .wrap-outline::before {
+      content:"";
+      position:absolute; inset:0; border-radius:18px;
+      background: var(--outline-grad);
+      opacity:0.85;
+      filter: blur(6px);
+      z-index:-1;
+    }
+
+    /* HEADER */
+    header {
+      display:flex; gap:18px; align-items:center;
+      position:relative; z-index:3;
+    }
+
+    .avatar {
+      width:128px; height:128px;
+      border-radius:18px; overflow:hidden;
+      border:1px solid rgba(255,255,255,0.6);
+      background:linear-gradient(135deg,#fff0f6,#fff7fb);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+
+    .avatar img { width:100%; height:100%; object-fit:cover; display:none; }
+    .initials { font-weight:800; font-size:38px; color:#5b2b3a; }
+
+    .head{ flex:1; min-width:0; }
+    .head h1{ margin:0; font-size:28px; line-height:1.05; word-break:break-word; }
+    .role{ margin-top:6px; font-weight:700; color:var(--muted); }
+
+    .badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .badge{
+      padding:8px 12px; border-radius:999px; font-weight:800; font-size:13px;
+      background: rgba(255,255,255,0.75);
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow:0 4px 14px rgba(0,0,0,0.04);
+    }
+
+    .lead{ margin-top:12px; line-height:1.45; color:#3b3f45; }
+
+    /* ACTION BUTTON */
+    .btn {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:10px 14px; border-radius:12px; font-weight:800;
+      color:white; background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
+      box-shadow:0 8px 30px rgba(255,149,197,0.12); text-decoration:none;
+    }
+    .btn.ghost{
+      color:var(--text); background:transparent; border:1px solid rgba(0,0,0,0.06);
+    }
+
+    /* LAYOUT */
+    .content{ margin-top:20px; display:grid; grid-template-columns:1fr 320px; gap:20px; }
+
+    /* CARDS */
+    .card{
+      background:rgba(255,255,255,0.72);
+      backdrop-filter:blur(8px);
+      border-radius:12px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow:0 8px 28px rgba(0,0,0,0.04);
+    }
+
+    .section-title{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800; font-size:13px;
+      background:rgba(255,255,255,0.8);
+      border:1px solid rgba(255,255,255,0.6);
+      word-break:break-word;
+    }
+
+    .muted{ color:var(--muted); font-size:13px; }
+
+    ul.plain{ padding-left:18px; margin:10px 0 0 0; }
+    ul.plain li{ margin:6px 0; }
+
+    /* SKILLS */
+    .skills{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .skill-pill{
+      padding:8px 12px;
+      background:rgba(255,149,197,0.10);
+      border-radius:999px;
+      border:1px solid rgba(255,149,197,0.12);
+      font-weight:700; font-size:13px;
+    }
+
+    /* PROJECT BOX */
+    .project{
+      margin-top:10px; padding:12px; border-radius:10px;
+      border:1px dashed rgba(0,0,0,0.05);
+      background:rgba(255,255,255,0.6);
+    }
+
+    /* ------- CONTACT FIXES ------- */
+    aside.card{
+      word-wrap:break-word;
+      overflow-wrap:break-word;
+      word-break:break-word;
+    }
+
+    .contact-row{
+      display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;
+    }
+
+    .contact-row strong{
+      min-width:80px; font-size:13px; font-weight:800; color:var(--text);
+    }
+
+    .contact-row div,
+    .contact-row a{
+      max-width:100%;
+      font-weight:700;
+      color:#5b2b3a;
+      text-decoration:none;
+      word-wrap:break-word;
+      overflow-wrap:break-word;
+      word-break:break-word;
+      line-height:1.35;
+      display:block;
+    }
+
+    footer{
+      margin-top:20px; text-align:center; font-size:13px; color:var(--muted);
+    }
+    footer .handle{ font-weight:800; color:#5b2b3a; }
+
+    @media (max-width:980px){
+      .content{ grid-template-columns:1fr; }
+      .avatar{ width:96px; height:96px; }
+      .head h1{ font-size:22px; }
+    }
+
+    @media print{
+      body{ background:white; padding:0; }
+      .bg-shapes{ display:none; }
+      .btn{ display:none; }
+      .wrap{ box-shadow:none; border:none; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="site-header" id="home">
-      <div class="avatar">SB</div>
-      <div class="hero">
-        <div class="hero-row">
-          <div>
-            <div class="tag">Computer Science & Engineering Student</div>
-            <h1>Hi — I'm <strong>Shivani Biradar</strong> 👋</h1>
-            <p>Pre-final year CSE student interested in Cloud Computing, AI/ML and software development.</p>
-            <div class="badges">
-              <span class="badge">Python</span>
-              <span class="badge">Cloud Computing</span>
-              <span class="badge">React</span>
-              <span class="badge">AI/ML</span>
-            </div>
-          </div>
 
-          <nav class="top-nav">
-            <a class="nav-btn" href="#home">Home</a>
-            <a class="nav-btn" href="#resume">Resume</a>
-            <a class="nav-btn" href="#blog">Blog</a>
-            <a class="nav-btn" href="#contact">Contact</a>
-          </nav>
+  <div class="bg-shapes" aria-hidden="true"></div>
+
+  <main class="wrap" role="document" aria-label="Resume — Shivani Biradar (Pastel Pink Glass)">
+    <div class="wrap-outline" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="avatar" aria-hidden="false">
+        <!-- Put your image path in the src below (or leave blank to show initials) -->
+        <img id="profilePhoto" src="" alt="Profile photo">
+        <div class="initials" id="initials">SB</div>
+      </div>
+
+      <div class="head">
+        <h1 id="name">SHIVANI BIRADAR</h1>
+        <div class="role">BE — Computer Science and Engineering</div>
+
+        <div class="badges" aria-hidden="false">
+          <div class="badge">Pre-final year</div>
+          <div class="badge">Cloud • AI/ML • Web</div>
+          <div class="badge">CGPA 7.55</div>
+        </div>
+
+        <p class="lead">
+          Motivated pre-final year Computer Science and Engineering student with a strong interest in cloud computing, AI/ML, and software development. Proficient in Python, C programming, DBMS, front-end technologies, and cloud platforms.
+        </p>
+
+        <div style="margin-top:12px; display:flex; gap:10px;">
+          <a class="btn" href="#" onclick="window.print();return false">Print / Save PDF</a>
+          <a class="btn ghost" href="#contact">Contact</a>
         </div>
       </div>
     </header>
 
-    <main class="main-grid">
-      <section class="card resume-col" id="resume">
-        <h2 class="section-title">Resume Snapshot</h2>
-        <h3>About Me</h3>
-        <p>Motivated pre-final year Computer Science and Engineering student with strong interest in Cloud Computing, AI/ML and software development. Proficient in Python, C, DBMS, front-end tech and cloud platforms.</p>
+    <!-- MAIN CONTENT -->
+    <section class="content" aria-labelledby="main-content">
 
-        <h3>Technical Skills</h3>
-        <div class="skills">
-          <span class="badge">Python</span>
-          <span class="badge">DBMS</span>
-          <span class="badge">HTML</span>
-          <span class="badge">CSS</span>
-          <span class="badge">React JS</span>
-          <span class="badge">Cloud</span>
+      <!-- LEFT SIDE -->
+      <main>
+        <section class="card">
+          <span class="section-title">ABOUT ME</span>
+          <p class="muted" style="margin-top:10px;">
+            Motivated pre-final year Computer Science and Engineering student with a strong interest in cloud computing, AI/ML, and software development. Proficient in Python, C programming, DBMS, front-end technologies, and cloud platforms.
+          </p>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <span class="section-title">EDUCATION</span>
+          <div style="margin-top:12px;">
+            <strong>BLDEA's V P Dr PG Halakatti College of Engineering & Technology, Vijayapur</strong>
+            <div class="muted">BE — CSE • CGPA: 7.55 • 2023–27</div>
+
+            <strong style="display:block;margin-top:12px;">Shantiniketan Science and Commerce PU College</strong>
+            <div class="muted">PCMB — 88.83% (2023)</div>
+
+            <strong style="display:block;margin-top:12px;">Sri B M Patil Public School</strong>
+            <div class="muted">CBSE — 73% (2021)</div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <span class="section-title">TECHNICAL SKILLS</span>
+          <div class="skills">
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">DBMS</div>
+            <div class="skill-pill">HTML</div>
+            <div class="skill-pill">CSS</div>
+            <div class="skill-pill">ReactJS</div>
+            <div class="skill-pill">Cloud Computing</div>
+            <div class="skill-pill">AWS</div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <span class="section-title">PROFESSIONAL SKILLS</span>
+          <ul class="plain" style="margin-top:10px">
+            <li>Communication skills</li>
+            <li>Time management</li>
+            <li>Leadership</li>
+            <li>Collaboration and Presentation</li>
+            <li>Analytical Thinking</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <span class="section-title">CERTIFICATIONS & PROJECTS</span>
+
+          <ul class="plain" style="margin-top:10px">
+            <li>Cloud Computing Internship | Placemantra</li>
+            <li>Python using All AI for Techies</li>
+            <li>Oracle Cloud Infrastructure 2025 — Gen AI Professional</li>
+            <li>English for IT | Cisco Networking Academy</li>
+          </ul>
+
+          <div class="project">
+            <strong>Project:</strong>
+            <div class="muted">Attendance Management System using AWS cloud — College portal for students & faculty.</div>
+          </div>
+
+          <div class="project" style="margin-top:10px">
+            <strong>Ongoing Course:</strong>
+            <div class="muted">Credit-Linked Program in AIML — IITG Daksh Gurukul x Masai</div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <span class="section-title">LANGUAGES & HOBBIES</span>
+          <div style="margin-top:10px; display:flex; gap:18px; flex-wrap:wrap;">
+            <div>
+              <strong>Languages</strong>
+              <div class="muted">English, Hindi, Kannada</div>
+            </div>
+            <div>
+              <strong>Hobbies</strong>
+              <div class="muted">Painting, Travelling, Gardening, Photography</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT SIDE → CONTACT ASIDE -->
+      <aside class="card" id="contact" aria-label="Contact">
+        <span class="section-title">CONTACT</span>
+
+        <div style="margin-top:12px;">
+          <div class="contact-row">
+            <strong>Phone</strong>
+            <div class="muted">+91-9113514751</div>
+          </div>
+
+          <div class="contact-row">
+            <strong>Email</strong>
+            <a href="mailto:biradarshivani2005@gmail.com" rel="noopener">biradarshivani2005@gmail.com</a>
+          </div>
+
+          <div class="contact-row">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank" rel="noopener">linkedin.com/in/shivanisbiradar</a>
+          </div>
+
+          <div class="contact-row">
+            <strong>Address</strong>
+            <div class="muted">#100, Adarsh Nagar, Ashram Road, Vijayapur</div>
+          </div>
         </div>
 
-        <h3>Education</h3>
-        <ul>
-          <li><strong>BE – Computer Science & Engineering</strong> — BLDEA's V P Dr PG Halakatti College, Vijayapur (2023–2027) CGPA: 7.55</li>
-          <li><strong>PUC (PCMB)</strong> — Shantiniketan Science & Commerce PU College, Vijayapur (2023) 88.83%</li>
-          <li><strong>CBSE – 10th</strong> — Sri B M Patil Public School, Vijayapur (2021) 73%</li>
-        </ul>
+        <hr style="border:none; border-top:1px solid rgba(0,0,0,0.05); margin:14px 0;">
 
-        <h3>Certifications & Projects</h3>
-        <ul>
-          <li>Cloud Computing Internship – Placemattra</li>
-          <li>Python using AI for Techies</li>
-          <li>Oracle OCI 2025 – Generative AI Professional</li>
-        </ul>
-      </section>
+        <div>
+          <strong>Education</strong>
+          <div class="muted">BE — CSE • CGPA 7.55</div>
+        </div>
 
-      <aside class="card contact-card" id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p>Open to internships, projects and collaborations in Cloud Computing, AI/ML and web development.</p>
+        <div style="margin-top:12px;">
+          <strong>Skills</strong>
+          <div class="muted">HTML • CSS • JS • React • Python • AWS</div>
+        </div>
 
-        <img src="myprofilepic.jpg" alt="Shivani Biradar" class="profile-pic" />
-
-        <div class="contact-list">
-          <a href="mailto:biradarshivani2005@gmail.com">biradarshivani2005@gmail.com</a>
-          <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">linkedin.com/in/shivanisbiradar</a>
-          <div class="location">Vijayapur, Karnataka</div>
+        <div style="margin-top:20px; text-align:center;">
+          <a class="btn" href="#" onclick="window.print();return false">Print / PDF</a>
         </div>
       </aside>
-    </main>
-
-    <section id="blog" class="card blog-section">
-      <h2 class="section-title">Blog</h2>
-      <p>Write about your blog posts here. Each blog card can link to a dedicated page.</p>
     </section>
 
-    <footer class="footer">© Shivani Biradar • Built with ❤️</footer>
-  </div>
+    <footer>
+      © 2025 Shivani Biradar · <span class="handle">@shivanibiradar</span> · career blog
+    </footer>
+  </main>
 
-  <script src="script.js"></script>
+  <script>
+    // Robust avatar fallback logic — no console errors if image missing.
+    (function () {
+      const img = document.getElementById('profilePhoto');
+      const initials = document.getElementById('initials');
+
+      // ensure initials visible by default
+      if (initials) {
+        initials.style.display = 'flex';
+      }
+
+      if (!img) {
+        // no image element present; nothing to do
+        return;
+      }
+
+      // if src is empty or not set, keep initials
+      const src = (img.getAttribute('src') || '').trim();
+      if (!src) {
+        img.style.display = 'none';
+        return;
+      }
+
+      // try to load the provided src
+      img.addEventListener('load', function () {
+        if (img.naturalWidth && img.naturalWidth > 0) {
+          img.style.display = 'block';
+          if (initials) initials.style.display = 'none';
+        } else {
+          img.style.display = 'none';
+          if (initials) initials.style.display = 'flex';
+        }
+      });
+
+      img.addEventListener('error', function () {
+        img.style.display = 'none';
+        if (initials) initials.style.display = 'flex';
+      });
+
+      // assign src (re-assigning to itself triggers load in some browsers)
+      img.src = src;
+    })();
+  </script>
 </body>
 </html>
