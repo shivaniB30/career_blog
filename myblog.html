@@ -1,47 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shivani Biradar | CS & Cloud</title>
 
-  <!-- Google Font -->
+  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- QR Code script -->
+  <!-- QR code library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
-
 </head>
 <body>
 
-  <!-- HEADER / HERO -->
-  <header class="site-header">
-    <div class="logo">SB</div>
+  <!-- animated background layers (pure CSS) are in styles.css -->
+  <div class="bg-layer layer-soft" aria-hidden="true"></div>
+  <div class="bg-layer layer-aurora" aria-hidden="true"></div>
 
-    <div class="header-main">
-      <img src="myprofilepic.jpg" alt="Shivani Biradar" class="profile-img" />
+  <header class="site-header" id="hero" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo">SB</div>
+        <div>
+          <div class="hero-tag">Computer Science & Engineering Student</div>
+          <h1 class="hero-title">Hi — I'm Shivani Biradar <span aria-hidden>👋</span></h1>
+          <p class="hero-sub">Pre-final year CSE student interested in <strong>Cloud Computing</strong>, <strong>AI/ML</strong> and <strong>software development</strong>.</p>
 
-      <div class="hero-text">
-        <div class="hero-tag">Computer Science & Engineering Student</div>
-        <h1>Hi, I’m Shivani Biradar 👋</h1>
-        <p class="hero-subtitle">
-          Pre-final year CSE student interested in
-          <strong>Cloud Computing</strong>, <strong>AI/ML</strong>, and
-          <strong>software development</strong>. I love learning, building projects, and sharing my journey.
-        </p>
-
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">Cloud</span>
-          <span class="chip">React</span>
-          <span class="chip">AI/ML</span>
+          <!-- horizontal unordered list (bulleted chips) -->
+          <ul class="skills-list" aria-label="Core skills">
+            <li><span>Python</span></li>
+            <li><span>Cloud Computing</span></li>
+            <li><span>React</span></li>
+            <li><span>AI/ML</span></li>
+          </ul>
         </div>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav" aria-label="Main navigation">
         <button data-target="hero">Home</button>
         <button data-target="resume">Resume</button>
         <button data-target="blog">Blog</button>
@@ -50,118 +48,113 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main>
-
+  <main class="main" role="main">
     <div class="container">
 
-      <!-- LEFT SIDE -->
-      <div>
-        <!-- Resume Section -->
-        <section id="resume" class="section card">
-          <h2 class="section-title">Resume Snapshot</h2>
+      <!-- LEFT: Resume + Blog -->
+      <section class="left-col">
+        <section id="resume" class="card" aria-labelledby="resume-title">
+          <h2 id="resume-title">Resume Snapshot</h2>
 
           <div class="grid-2">
-
             <article>
               <h3>About Me</h3>
-              <p>
-                Motivated pre-final year CSE student with interest in Cloud Computing, AI/ML, and software development.
-                Skilled in Python, C, DBMS, front-end and cloud platforms.
-              </p>
+              <p>Motivated pre-final year Computer Science and Engineering student with strong interest in Cloud Computing, AI/ML and software development. Proficient in Python, C, DBMS, front-end tech and cloud platforms.</p>
             </article>
 
             <article>
               <h3>Education</h3>
-              <ul>
-                <li>
-                  <strong>B.E - Computer Science & Engineering</strong><br>
-                  BLDEA’s VP Dr PG Halakatti College, Vijayapur<br>
-                  <span class="meta">2023–2027 · CGPA: 7.55</span>
-                </li>
-                <li>
-                  <strong>PUC (PCMB)</strong><br>
-                  Shantiniketan PU College<br>
-                  <span class="meta">2023 · 88.83%</span>
-                </li>
+              <ul class="list">
+                <li><strong>BE – Computer Science & Engineering</strong><br>BLDEA’s V P Dr PG Halakatti College, Vijayapur<br><span class="muted">2023–2027 · CGPA: 7.55</span></li>
+                <li><strong>PUC (PCMB)</strong><br>Shantiniketan Science & Commerce PU College, Vijayapur<br><span class="muted">2023 · 88.83%</span></li>
+                <li><strong>CBSE – 10th</strong><br>Sri B M Patil Public School, Vijayapur<br><span class="muted">2021 · 73%</span></li>
               </ul>
             </article>
 
             <article>
-              <h3>Skills</h3>
+              <h3>Technical Skills</h3>
               <div class="tags">
-                <span>Python</span>
-                <span>DBMS</span>
-                <span>React</span>
-                <span>HTML/CSS</span>
-                <span>Cloud</span>
+                <span>Python</span><span>DBMS</span><span>HTML</span><span>CSS</span><span>React JS</span><span>Cloud</span>
               </div>
+
+              <h4 style="margin-top:12px">Professional Skills</h4>
+              <ul class="list">
+                <li>Communication</li>
+                <li>Time management</li>
+                <li>Leadership</li>
+                <li>Collaboration & presentation</li>
+                <li>Critical & analytical thinking</li>
+              </ul>
             </article>
 
             <article>
               <h3>Certifications & Projects</h3>
-              <ul>
+              <ul class="list">
                 <li>Cloud Computing Internship – Placematra</li>
-                <li>Oracle OCI 2025 – GenAI Professional</li>
-                <li>Attendance Management System – AWS Cloud</li>
+                <li>Python using AI for Techies</li>
+                <li>Oracle OCI 2025 – Generative AI Professional</li>
+                <li>English for IT – Cisco Networking Academy</li>
+                <li>NPTEL online certification on Artificial Intelligence: Concepts & Techniques</li>
               </ul>
-            </article>
 
+              <h4 style="margin-top:10px">Project</h4>
+              <ul class="list">
+                <li>Attendance Management System using AWS Cloud</li>
+                <li>Student & faculty attendance portal system for college</li>
+              </ul>
+
+              <h4 style="margin-top:10px">Ongoing Course</h4>
+              <p class="muted">Credit-Linked Program in AI & ML – Daksh Gurukul IITG × Masai</p>
+            </article>
           </div>
         </section>
 
-        <!-- Blog Section -->
-        <section id="blog" class="section card">
-          <h2 class="section-title">Career Blog</h2>
+        <section id="blog" class="card" aria-labelledby="blog-title" style="margin-top:18px">
+          <h2 id="blog-title">Career Blog</h2>
 
-          <article>
-            <h3>Write a New Post</h3>
+          <div class="post-form">
+            <label for="postTitle">Title</label>
+            <input id="postTitle" type="text" placeholder="e.g. My first cloud project" />
 
-            <div class="form-group">
-              <label for="postTitle">Title</label>
-              <input id="postTitle" type="text" placeholder="My first cloud project" />
+            <label for="postContent">Content</label>
+            <textarea id="postContent" rows="4" placeholder="Write your thoughts, learnings or experiences..."></textarea>
+
+            <div class="form-row">
+              <button id="addPostBtn" class="btn primary">Publish</button>
+              <div class="hint">Posts are saved locally (localStorage)</div>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="postContent">Content</label>
-              <textarea id="postContent" rows="4" placeholder="Write your experience..."></textarea>
-            </div>
-
-            <button id="addPostBtn" class="primary">Publish</button>
-          </article>
-
-          <hr>
-
-          <div id="postList"></div>
+          <div id="postList" class="post-list" aria-live="polite" style="margin-top:14px"></div>
         </section>
-      </div>
+      </section>
 
-      <!-- RIGHT SIDE -->
-      <aside>
-
-        <!-- Contact -->
-        <section id="contact" class="section card">
-          <h2 class="section-title">Contact</h2>
-
-          <p>Open to internships, projects, and collaborations.</p>
+      <!-- RIGHT: Contact / QR / Interests -->
+      <aside class="right-col">
+        <section id="contact" class="card" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p>Open to internships, projects and collaborations in Cloud Computing, AI/ML and web development.</p>
 
           <p class="contact-lines">
             📧 <a href="mailto:biradarshivani2005@gmail.com">biradarshivani2005@gmail.com</a><br>
-            🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">linkedin.com/in/shivanisbiradar</a><br>
+            🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank" rel="noopener">linkedin.com/in/shivanisbiradar</a><br>
             📍 Vijayapur, Karnataka
           </p>
 
-          <h3 style="margin-top:15px;">My Blog QR Code</h3>
-          <div id="qrcode"></div>
+          <div class="qr-block">
+            <div id="qrcode" aria-hidden="true"></div>
+            <div class="qr-text">
+              <strong>shivaniB30.github.io</strong>
+              <div class="muted">Scan to open my blog</div>
+            </div>
+          </div>
         </section>
 
-        <!-- Interests -->
-        <section class="card">
+        <section class="card" style="margin-top:16px">
           <h3>Languages & Interests</h3>
           <p><strong>Languages:</strong> English, Hindi, Kannada</p>
-          <p><strong>Hobbies:</strong> Arts, Painting, Gardening, Photography</p>
+          <p><strong>Hobbies:</strong> Arts & crafts, painting, travelling, gardening, photography</p>
         </section>
-
       </aside>
 
     </div>
@@ -171,8 +164,7 @@
     © 2025 Shivani Biradar · career blog
   </footer>
 
-  <!-- JavaScript -->
   <script src="script.js"></script>
-
 </body>
 </html>
+
