@@ -25,7 +25,15 @@ header {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     margin-bottom: 10px;
 }
-
+.hero-chips ul{
+    display:flex;
+    gap:12px:
+    list-style:disc;
+    padding-left:20px;
+}
+.hero-chips li{
+    white-space:nowrap;
+}
 
 nav button {
     margin: 6px;
@@ -93,3 +101,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
