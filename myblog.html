@@ -9,26 +9,85 @@
 
   <style>
     :root{
-      --bg-pink-1:#fff0f6;
-      --bg-pink-2:#ffe6ef;
-      --glass: rgba(255,255,255,0.85);
+      --bg1:#fff0f6;
+      --bg2:#ffe6ef;
+      --glass: rgba(255,255,255,0.75);
       --muted:#6b7280;
-      --accent-a:#ff95c5;
-      --accent-b:#ffd6e9;
+      --accent:#ff7ab6;
+      --accent2:#ffd6e9;
       font-family:"Inter",system-ui;
     }
-    body{margin:0;background:linear-gradient(180deg,var(--bg-pink-1),var(--bg-pink-2))}
-    a{text-decoration:none;color:#d63384;font-weight:600}
+
+    body{
+      margin:0;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      min-height:100vh;
+    }
+
+    a{text-decoration:none;color:var(--accent);font-weight:600}
     .page{max-width:1100px;margin:30px auto;padding:20px}
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:20px}
-    .card{background:var(--glass);padding:20px;border-radius:14px;
-          box-shadow:0 10px 30px rgba(0,0,0,0.05)}
-    .btn{padding:10px 16px;border-radius:10px;font-weight:700;border:0;
-         background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
-         color:white;cursor:pointer}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:24px;
+    }
+
+    .card{
+      background:var(--glass);
+      padding:24px;
+      border-radius:20px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.08);
+      backdrop-filter: blur(10px);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 25px 60px rgba(0,0,0,0.12);
+    }
+
+    .btn{
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:700;
+      border:0;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{transform:scale(1.05)}
     .ghost{background:transparent;border:1px solid #ddd;color:#111}
+
     .muted{color:var(--muted)}
-    ul{padding-left:18px}
+    ul{padding-left:18px;line-height:1.7}
+
+    /* Profile photo */
+    .profile-box{text-align:center}
+    .avatar{
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      margin:0 auto 12px;
+      overflow:hidden;
+      background:linear-gradient(135deg,#ffd6e9,#fff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+      font-weight:800;
+      color:#b83280;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    h1,h2,h3{margin:0}
+
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
     }
@@ -41,166 +100,131 @@
   <!-- HERO -->
   <section class="hero">
     <div class="card">
-      <h1>Hello, I'm <strong>Shivani Biradar</strong></h1>
-      <p class="muted" style="margin-top:10px">
+      <h1>Hello, I'm <strong>Shivani Biradar</strong> 👋</h1>
+      <p class="muted" style="margin-top:12px">
         Pre-final year Computer Science Engineering student specializing in 
         <strong>Cloud Computing, Artificial Intelligence & Machine Learning, and Web Development</strong>. 
         Actively building scalable applications and intelligent systems. 
         Seeking internship and entry-level opportunities in cloud, AI, and software development roles.
       </p>
 
-      <div style="margin-top:15px">
+      <div style="margin-top:18px">
         <button class="btn" onclick="document.getElementById('full').scrollIntoView({behavior:'smooth'})">
           View Full Profile
         </button>
         <a href="#contact" class="btn ghost">Contact</a>
-        <button class="btn ghost" onclick="window.print()">Print / Save PDF</button>
+        <button class="btn ghost" onclick="window.print()">Save PDF</button>
       </div>
     </div>
 
-    <div class="card">
+    <!-- PROFILE CARD -->
+    <div class="card profile-box">
+      <div class="avatar">
+        <!-- PASTE YOUR GITHUB RAW IMAGE LINK HERE -->
+        <img src="PASTE_GITHUB_IMAGE_LINK_HERE"
+             onerror="this.style.display='none'">
+        <span>SB</span>
+      </div>
       <h3>Shivani Biradar</h3>
       <p class="muted">BE — Computer Science & Engineering (2023–27)</p>
-      <p class="muted"><strong>Location:</strong> Vijayapur, Karnataka</p>
-      <p class="muted"><strong>Email:</strong> biradarshivani2005@gmail.com</p>
+      <p class="muted">📍 Vijayapur, Karnataka</p>
+      <p class="muted">📧 biradarshivani2005@gmail.com</p>
     </div>
   </section>
 
   <!-- FULL PROFILE -->
-  <section id="full" style="margin-top:25px">
+  <section id="full" style="margin-top:30px">
 
-    <!-- Career Objective -->
     <div class="card">
       <h3>Career Objective</h3>
-      <p class="muted" style="margin-top:10px">
+      <p class="muted">
         To secure a challenging role as a Cloud Engineer, AI Engineer, or Full Stack Developer where I can apply my skills in cloud computing, machine learning, and web development to build impactful real-world solutions.
       </p>
     </div>
 
-    <!-- About -->
-    <div class="card" style="margin-top:15px">
+    <div class="card" style="margin-top:16px">
       <h3>About Me</h3>
-      <p class="muted" style="margin-top:10px">
+      <p class="muted">
         Results-driven Computer Science Engineering student with strong expertise in Cloud Computing, Artificial Intelligence & Machine Learning, and Full Stack Web Development. Proficient in Python, C, SQL, front-end technologies (HTML, CSS, React), and cloud platforms like AWS and Oracle Cloud.
       </p>
     </div>
 
-    <!-- Education -->
-    <div class="card" style="margin-top:15px">
+    <div class="card" style="margin-top:16px">
       <h3>Education</h3>
-      <ul class="muted" style="margin-top:10px">
-        <li><strong>BLDEA's V P Dr PG Halakatti College of Engg & Tech</strong><br>
-            BE — CSE | CGPA: 7.7 (2023–27)</li>
-        <li><strong>Shantiniketan PU College</strong><br>
-            PCMB — 88.83% (2023)</li>
-        <li><strong>Sri B M Patil Public School</strong><br>
-            CBSE — 73% (2021)</li>
+      <ul class="muted">
+        <li><strong>BLDEA's V P Dr PG Halakatti College</strong> – BE CSE | CGPA: 7.7</li>
+        <li><strong>Shantiniketan PU College</strong> – PCMB | 88.83%</li>
+        <li><strong>Sri B M Patil Public School</strong> – CBSE | 73%</li>
       </ul>
     </div>
 
-    <!-- Core Skills -->
-    <div class="card" style="margin-top:15px">
+    <div class="card" style="margin-top:16px">
       <h3>Core Technical Skills</h3>
-      <ul class="muted" style="margin-top:10px">
-        <li><strong>Cloud Computing:</strong> AWS, Oracle Cloud Infrastructure</li>
-        <li><strong>AI & Machine Learning:</strong> Python, NumPy, Pandas, Scikit-learn</li>
-        <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript, ReactJS</li>
-        <li><strong>Programming:</strong> Python, C</li>
-        <li><strong>Database:</strong> SQL, DBMS, PostgreSQL</li>
-        <li><strong>Tools:</strong> Git, VS Code</li>
+      <ul class="muted">
+        <li>Cloud: AWS, Oracle Cloud</li>
+        <li>AI/ML: Python, Pandas, NumPy, Scikit-learn</li>
+        <li>Web: HTML, CSS, JavaScript, React</li>
+        <li>Database: SQL, PostgreSQL</li>
+        <li>Tools: Git, VS Code</li>
       </ul>
     </div>
 
-    <!-- Projects -->
-    <div class="card" style="margin-top:15px">
+    <div class="card" style="margin-top:16px">
       <h3>Projects</h3>
-      <p class="muted" style="margin-top:10px">
+      <p class="muted">
         <strong>Attendance Management System (Cloud-Based)</strong><br>
-        Developed a cloud-enabled web application for managing student and faculty attendance with role-based access, real-time data storage, and automated reports.
-        <br><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React, AWS, SQL
+        Role-based attendance system with real-time storage and automated reports.  
+        <strong>Tech:</strong> HTML, CSS, JS, React, AWS, SQL
       </p>
     </div>
 
-    <!-- Certifications (WITH HIDDEN LINKS) -->
-    <div class="card" style="margin-top:15px">
+    <!-- CERTIFICATES (YOUR DRIVE LINKS KEPT) -->
+    <div class="card" style="margin-top:16px">
       <h3>Certifications</h3>
-      <ul class="muted" style="margin-top:10px">
-        <li>
-          Oracle Cloud Infrastructure 2025 – Generative AI Professional  
-          <a href="https://drive.google.com/file/d/1SeiWx6XDvgbrOf-YRarYnlvatfoC2KV2/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-        <li>
-          Cloud Computing Internship – Placemantra  
-          <a href="https://drive.google.com/drive/folders/1jkCxeDsaVA01AjP1zej4MPq0qkuKkrad="_blank">
-            View Certificate
-          </a>
-        </li>
-        <li>
-          Python using AI for Techies  
-          <a href="https://drive.google.com/file/d/1SeiWx6XDvgbrOf-YRarYnlvatfoC2KV2/view?usp=drivesdk" target="_blank">
-            View Certificate
-          </a>
-        </li>
-        <li>
-          English for IT – Cisco Networking Academy  
-          <a href="https://drive.google.com/file/d/1ZI6XnmozOHIplkSU_P3h2VGuWhkl-luF/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-         <li>
-             NPTEL Artificial Intelligence:Concepts and Techniques
-          <a href=" https://drive.google.com/file/d/1_Tg4CGiaPN4pcBHky-d1RvccEfgzZo9u/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-        <li>
-          LearnTube.ai AWS Cloud Assessment
-          <a href="https://drive.google.com/file/d/1RcIQyqZOrUifqvbIytYl8Bi8-qMKSLYu/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-        <li>
-          Infosys SpringBoard Introduction to Data Science
-          <a href="https://drive.google.com/file/d/1ljpLtN9V66rXvdtrXzKk966sZu3IKHtK/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-          Infosys SpringBoard Artificial Intelligence Primer Certification
-          <a href="https://drive.google.com/file/d/1ljpLtN9V66rXvdtrXzKk966sZu3IKHtK/view?usp=drivesdk="_blank">
-            View Certificate
-          </a>
-        </li>
-        
-        
+      <ul class="muted">
+        <li>Oracle Cloud Infrastructure 2025 – Generative AI Professional  
+          <a href="https://drive.google.com/file/d/1SeiWx6XDvgbrOf-YRarYnlvatfoC2KV2/view?usp=drivesdk" target="_blank">View</a></li>
 
+        <li>Cloud Computing Internship – Placemantra  
+          <a href="https://drive.google.com/drive/folders/1jkCxeDsaVA01AjP1zej4MPq0qkuKkrad" target="_blank">View</a></li>
 
-       <li>
-          AIML Program – Daksh Gurukul IIT Guwahati x Masai (On-going course)
-          </a>
-        </li>
-       
+        <li>Python using AI for Techies  
+          <a href="https://drive.google.com/file/d/1SeiWx6XDvgbrOf-YRarYnlvatfoC2KV2/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>English for IT – Cisco Networking Academy  
+          <a href="https://drive.google.com/file/d/1ZI6XnmozOHIplkSU_P3h2VGuWhkl-luF/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>NPTEL AI: Concepts and Techniques  
+          <a href="https://drive.google.com/file/d/1_Tg4CGiaPN4pcBHky-d1RvccEfgzZo9u/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>LearnTube.ai AWS Cloud Assessment  
+          <a href="https://drive.google.com/file/d/1RcIQyqZOrUifqvbIytYl8Bi8-qMKSLYu/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>Infosys SpringBoard – Introduction to Data Science  
+          <a href="https://drive.google.com/file/d/1ljpLtN9V66rXvdtrXzKk966sZu3IKHtK/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>Infosys SpringBoard – AI Primer  
+          <a href="https://drive.google.com/file/d/1ljpLtN9V66rXvdtrXzKk966sZu3IKHtK/view?usp=drivesdk" target="_blank">View</a></li>
+
+        <li>AIML Program – Daksh Gurukul IIT Guwahati x Masai (On-going)</li>
       </ul>
     </div>
 
-    <!-- Contact -->
-    <div class="card" id="contact" style="margin-top:15px">
+    <!-- CONTACT -->
+    <div class="card" id="contact" style="margin-top:16px">
       <h3>Contact</h3>
-      <p class="muted"><strong>Phone:</strong> +91-9113514751</p>
-      <p class="muted"><strong>Email:</strong> biradarshivani2005@gmail.com</p>
-      <p class="muted"><strong>LinkedIn:</strong> 
-        <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">
-          linkedin.com/in/shivanisbiradar
-        </a>
+      <p class="muted">📞 +91-9113514751</p>
+      <p class="muted">📧 biradarshivani2005@gmail.com</p>
+      <p class="muted">
+        🔗 <a href="https://www.linkedin.com/in/shivanisbiradar" target="_blank">
+        linkedin.com/in/shivanisbiradar</a>
       </p>
-      <p class="muted"><strong>Address:</strong> Vijayapur, Karnataka</p>
     </div>
 
   </section>
 
-  <footer style="text-align:center;margin-top:25px" class="muted">
-    © 2025 Shivani Biradar | Cloud • AI/ML • Web Developer
+  <footer style="text-align:center;margin-top:30px" class="muted">
+    © 2025 Shivani Biradar · Cloud · AI/ML · Web Developer
   </footer>
 
 </div>
